@@ -42,9 +42,9 @@ Model bekerja dengan cara memproyeksikan teks ke ruang embedding berdimensi ting
 Dataset yang digunakan diperoleh dari dataset terbuka berasal dari platform Kaggle:
 
 **Kaggle — Indonesian Twitter Sentiment Analysis Dataset-PPKM**
-Link: *[https://www.kaggle.com/datasets/](https://www.kaggle.com/datasets/anggapurnama/twitter-dataset-ppkm)*
+Link: *[dataset](https://www.kaggle.com/datasets/anggapurnama/twitter-dataset-ppkm)*
 
-Dataset tersebut berisi kumpulan tweet berbahasa Indonesia terkait Pemberlakuan Pembatasan Kegiatan Masyarakat (PPKM) yang telah diberi label sentimen. Dataset ini terdiri dari sekitar 20.000 tweet yang dikumpulkan dalam rentang waktu dari 1 April 2020 hingga 1 April 2022.Rentang waktu yang dipilih untuk pengumpulan data didasarkan pada saat Indonesia mulai menerapkan PPKM secara luas dan saat pemerintah mencabut kebijakan tersebut. Dalam dataset ini, dapat ditemukan berbagai pendapat, komentar, dan reaksi masyarakat terkait kebijakan PPKM selama periode tersebut. 
+Dataset tersebut berisi kumpulan tweet berbahasa Indonesia terkait Pemberlakuan Pembatasan Kegiatan Masyarakat (PPKM) yang telah diberi label sentimen. Dataset ini terdiri dari sekitar 20.000 tweet yang dikumpulkan dalam rentang waktu dari 1 April 2020 hingga 1 April 2022. Rentang waktu yang dipilih untuk pengumpulan data didasarkan pada saat Indonesia mulai menerapkan PPKM secara luas dan saat pemerintah mencabut kebijakan tersebut. Dalam dataset ini, dapat ditemukan berbagai pendapat, komentar, dan reaksi masyarakat terkait kebijakan PPKM selama periode tersebut. 
 
 Dataset yang tersedia pada platform tersebut terdiri dari dua jenis, dataset mentah dan sudah bersih dan berlabel. Untuk keperluan proyek ini, file yang digunakan adalah:
 
@@ -72,11 +72,16 @@ Informasi ini juga dicantumkan pada direktori `data/README.md`.
 
 Pipeline sistem dibangun dengan alur sebagai berikut:
 
-### **1. Load Dataset**
+### **1. LOad Libraries & Installation Dependences
+Membaca dan menginstal libraries dan dependensi yang akan digunakan dalam proyek.
+
+### **2. Load Dataset**
 
 Membaca dataset berlabel untuk persiapan embedding dan pelatihan.
 
-### **2. Preprocessing Ringan**
+## **2. Exploratory Data Analysis (EDA)
+
+## **3. Preprocessing Ringan**
 
 Digunakan agar tetap sesuai konteks data Twitter dan tidak menghilangkan makna:
 
@@ -139,11 +144,6 @@ Sistem prediksi menghasilkan:
 * Confidence score
 * Nearest training example via FAISS
 
-### **Flowchart**
-
-Representasi visual pipeline tersedia di:
-`flowchart/pipeline_flowchart.png`
-
 ---
 
 ## **4. Installation & Setup**
@@ -151,7 +151,7 @@ Representasi visual pipeline tersedia di:
 ### **Clone Repository**
 
 ```bash
-git clone https://github.com/<username>/nolimit-ds-test-sumitra.git
+git clone https://github.com/<username>/nolimit-ds-test-sumitra-adriansyah.git
 cd nolimit-ds-test-sumitra
 ```
 
@@ -282,15 +282,7 @@ Semua paket dapat dipasang melalui `requirements.txt`.
 
 ---
 
-## **9. Notes**
-
-* Model transformer tidak dilakukan fine-tuning; seluruh proses mengandalkan embedding + classifier.
-* Pendekatan ini efisien untuk dataset menengah dan mudah direproduksi.
-* Model dapat ditingkatkan apabila dataset ditambah atau diarahkan untuk fine-tuning BERT multilingual.
-
----
-
-## **10. Contact**
+## **9. Contact**
 
 Jika dibutuhkan informasi tambahan:
 
