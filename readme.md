@@ -72,14 +72,14 @@ Informasi ini juga dicantumkan pada direktori `data/README.md`.
 
 Pipeline sistem dibangun dengan alur sebagai berikut:
 
-### **1. LOad Libraries & Installation Dependences
+### **1. Load Libraries & Installation Dependences**
 Membaca dan menginstal libraries dan dependensi yang akan digunakan dalam proyek.
 
 ### **2. Load Dataset**
 
 Membaca dataset berlabel untuk persiapan embedding dan pelatihan.
 
-## **2. Exploratory Data Analysis (EDA)
+## **2. Exploratory Data Analysis (EDA)**
 
 ## **3. Preprocessing Ringan**
 
@@ -147,7 +147,12 @@ Sistem prediksi menghasilkan:
 ---
 
 ## **4. Installation & Setup**
-
+### **Download Dataset**
+Cara untuk mendownload dataset berikut:
+* Akses link dataset berikut: *[dataset](https://www.kaggle.com/datasets/anggapurnama/twitter-dataset-ppkm)*
+* Download dataset pada halaman website.
+* Extract Dataset.
+   
 ### **Clone Repository**
 
 ```bash
