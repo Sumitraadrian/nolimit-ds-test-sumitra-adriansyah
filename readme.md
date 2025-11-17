@@ -1,8 +1,12 @@
 
 # Sentiment Classification using Hugging Face Sentence Transformers & FAISS
 
-Repositori ini berisi implementasi lengkap untuk tugas text classification sesuai instruksi **NoLimit Indonesia — Data Scientist Hiring Test**.
-Proyek ini menggunakan model dari Hugging Face untuk menghasilkan embedding, memanfaatkan FAISS sebagai metode ANN (Approximate Nearest Neighbor) untuk pencarian vektor, serta Logistic Regression sebagai model klasifikasi sentimen.
+Repositori ini berisi implementasi lengkap untuk tugas text classification sesuai instruksi **NoLimit Indonesia — Data Scientist Hiring Test** dengan memilih opsi A: Text Classification. 
+
+Proyek ini menggunakan model dari Hugging Face untuk menghasilkan embedding, serta memanfaatkan FAISS sebagai metode ANN (Approximate Nearest Neighbor) untuk pencarian vektor, dan Logistic Regression sebagai model klasifikasi sentimen.
+
+## Latar Belakang
+PPKM (Pemberlakukan Pembatasan Kegiatan Masyarakat) merupakan kebijakan pemerintah Indonesia untuk mengendalikan COVID-19. Reaksi masyarakat beragam yakni posistiff, netral hingga negatif. Sehingga analiis sentimen dapat membantu melihat persepsi publik terhadap kebijakan tersebut.
 
 Tujuan utama proyek ini adalah membangun sistem yang mampu mengklasifikasikan sentimen teks ke dalam tiga kategori:
 
@@ -10,25 +14,23 @@ Tujuan utama proyek ini adalah membangun sistem yang mampu mengklasifikasikan se
 * **1 — Neutral**
 * **2 — Negative**
 
-Seluruh tahapan pipeline diimplementasikan dalam notebook dan digambarkan dalam flowchart yang tersedia pada repositori.
-
 ---
 
 ## **1. Project Overview**
 
 Tugas yang dipilih untuk penyelesaian technical test ini adalah:
 
-### **A. Classification — Sentiment Analysis**
+### **Arsitektur & Alur Kerja**
 
 Rangkaian proses yang digunakan:
 
 1. Load Libraries & Instalation Dependences
-2. Pemuatan dataset berlabel
+2. Pemuatan dataset
 3. Exploratory Data Analysis (EDA)
 2. Preprocessing ringan
 3. Pembuatan embedding menggunakan sentence-transformers
-4. Pembuatan indeks FAISS
-5. Pelatihan model Logistic Regression
+4. Pelatihan model Logistic Regression
+5. Pembuatan FAISS index
 6. Evaluasi performa model
 7. Penyusunan pipeline prediksi
 8. Dokumentasi lengkap beserta flowchart
@@ -172,9 +174,9 @@ Jika menjalankan melalui Google Colab, seluruh dependensi akan terpasang otomati
 
 ## **5. How to Run**
 
-### **A. Menjalankan via Notebook**
+### **Menjalankan via Notebook**
 
-Buka file berikut:
+1. Buka file berikut:
 
 ```
 notebooks/sentiment_classification.ipynb
@@ -189,27 +191,24 @@ Notebook berisi alur lengkap mulai dari:
 * Evaluasi performa
 * Contoh prediksi
 
-Semua sel siap dijalankan tanpa perubahan tambahan.
+2. Upload dataset INA_TweetsPPKM_Labeled_Pure.csv
+3. Jalankan Seluruh cell dari atas hingga akhir
+4. Model akan:
+ * Memuat dataset
+ * Melatih model
+ * Menampilkan hasil evaluasi
+ * Menyediakan fungsi prediksi 
 
 ---
 
-### **B. Menjalankan via Script (Opsional)**
+## **6. Hasil Klasifikasi
 
-Jika ingin melakukan prediksi cepat dari terminal:
+Model menghasilkan Classification Report (Precision, Recall, F1-Score) pada proses pelatihan dengan hasil berikut:
 
-```bash
-python src/predict.py --text "PPKM membantu menekan COVID"
-```
+Serta hasil Confussion Matrix sebagai berikut:
 
-Output yang ditampilkan:
 
-* Sentiment prediction
-* Confidence score
-* Nearest example dari FAISS
-
----
-
-## **6. Example Predictions**
+## **7. Example Predictions**
 
 Berikut beberapa hasil prediksi dari model:
 
@@ -255,17 +254,8 @@ Contoh lain dapat dilihat pada notebook.
 Flowchart pipeline terdapat pada:
 
 ```
-flowchart/pipeline_flowchart.png
+flowchart/flowchart-ds-test.png
 ```
-
-Bagan memuat alur:
-
-Input → Preprocessing → Embedding
-→ Train Classifier & Build FAISS
-→ Evaluation
-→ Prediction Output
-
-Alur dibuat linear dan ringkas sesuai instruksi teknis.
 
 ---
 
@@ -274,54 +264,24 @@ Alur dibuat linear dan ringkas sesuai instruksi teknis.
 Daftar pustaka yang digunakan:
 
 ```
-pandas
-numpy
-scikit-learn
-sentence-transformers
-faiss-cpu
-matplotlib
-seaborn
+transformers>=4.40.0
+datasets>=2.19.0
+accelerate>=0.30.0
+sentencepiece>=0.2.0
+scikit-learn>=1.4.0
+pandas>=2.1.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+faiss-cpu>=1.7.4
+tqdm>=4.66.0
+sentence-transformers>=2.6.0
+huggingface_hub>=0.24.0
+joblib>=1.4.0
+
 ```
 
 Semua paket dapat dipasang melalui `requirements.txt`.
 
 ---
+## ** Kesimpulan
 
-## **9. Contact**
-
-Jika dibutuhkan informasi tambahan:
-
-**Author:** Sumitra Adriansyah
-**Email:** <isi-email>
-**Repository:** nolimit-ds-test-sumitra
-
----
-
-# **Struktur Folder Final**
-
-Berikut struktur folder yang bisa Anda gunakan di GitHub:
-
-```
-nolimit-ds-test-sumitra/
-│
-├── data/
-│   ├── INA_TweetsPPKM_Labeled_Pure.csv
-│   ├── sample_data.csv
-│   └── README.md
-│
-├── notebooks/
-│   └── sentiment_classification.ipynb
-│
-├── src/
-│   ├── predict.py
-│   └── utils.py
-│
-├── flowchart/
-│   └── pipeline_flowchart.png
-│
-├── requirements.txt
-├── README.md
-└── LICENSE  (opsional)
-```
-
----
