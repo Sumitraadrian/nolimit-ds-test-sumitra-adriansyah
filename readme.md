@@ -32,8 +32,9 @@ Rangkaian proses yang digunakan:
 4. Pelatihan model Logistic Regression
 5. Pembuatan FAISS index
 6. Evaluasi performa model
-7. Penyusunan pipeline prediksi
-8. Dokumentasi lengkap beserta flowchart
+7. Save Model
+8. Penyusunan pipeline prediksi
+9. Dokumentasi lengkap beserta flowchart
 
 Model bekerja dengan cara memproyeksikan teks ke ruang embedding berdimensi tinggi, kemudian melakukan prediksi menggunakan classifier dan menampilkan contoh paling dekat dari FAISS sebagai referensi.
 
@@ -64,9 +65,7 @@ Informasi ini juga dicantumkan pada direktori `data/README.md`.
 
 ### **Isi Folder data/**
 
-* `INA_TweetsPPKM_Labeled_Pure.csv` — dataset utama
-* `sample_data.csv` — sampel dataset kecil (±20 baris) untuk verifikasi lokal
-* `README.md` — berisi sumber dataset, lisensi, dan format kolom
+* `small_sample_data.csv` — sampel dataset kecil (10 baris) untuk verifikasi lokal
 
 ---
 
@@ -83,6 +82,8 @@ Membaca dataset berlabel untuk persiapan embedding dan pelatihan.
 
 ## **2. Exploratory Data Analysis (EDA)**
 
+Tahap Exploratory Data Analysis (EDA) dilakukan untuk memahami karakteristik dataset sebelum masuk ke proses pelatihan model. EDA ini bertujuan untuk mengungkap kualitas data, distribusi label, pola teks, hingga potensi masalah seperti duplikasi dan missing values.
+
 ## **3. Preprocessing Ringan**
 
 Digunakan agar tetap sesuai konteks data Twitter dan tidak menghilangkan makna:
@@ -96,7 +97,7 @@ Digunakan agar tetap sesuai konteks data Twitter dan tidak menghilangkan makna:
 
 ### **3. Generate Embeddings**
 
-Model yang digunakan:
+Model yang digunakan berasal dari Hugging Face:
 **`sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`**
 
 Model ini dipilih karena:
@@ -107,12 +108,17 @@ Model ini dipilih karena:
 
 ### **4. Split Train–Test**
 
-Pembagian dataset menggunakan secara acak.
+Pembagian dataset menggunakan secara acak. Pembagian data dilakukan dengan komposisi: 
+```
+80% data → train set
+20% data → test set
+Menggunakan random seed 42 agar reproduktibel
+```
 
 ### **5. Train Classifier**
 
 Model: **Logistic Regression**
-Parameter penting:
+Menggunakan Parameter penting:
 
 ```
 class_weight="balanced"
