@@ -223,34 +223,37 @@ Berikut beberapa hasil prediksi dari model:
 
 **Input:**
 
-> "PPKM bikin masyarakat makin susah"
-
-**Prediction:** Negative
-**Confidence:** 0.89
-**Nearest example:**
-
-> "… masyarakat kesulitan akibat ppkm …"
-
----
-
-**Input:**
-
-> "Menurut saya PPKM ini baik"
+> "krn masih ingat, 2019 itu sampai bbrp bulan pertengahan tahunsh ada hujan. jaman2 covid pkkm jg ada hujan deras pas kemarau. trs 2021 - 2023 msh ingat bgt, lebaran itu bulan mei kan (klo g slh). pas itu pergi siang2 keluar mau nyari hp"
 
 **Prediction:** Positive
-**Confidence:** 0.81
+**Confidence:** 0.5943
 **Nearest example:**
 
-> "… menekan penyebaran covid …"
+> "tak terhalangi oleh ppkm tapi sungkan mengelak hujan"
 
 ---
 
 **Input:**
 
-> "Saya merasa PPKM biasa saja"
+> "pas covid gue akan setuju sama gubernur jakarta saat itu adanya pkkm, beli masker yang cukup untuk sekeluarga"
+
+**Prediction:** Positive
+**Confidence:** 0.5195
+**Nearest example:**
+
+> "keseringan pake masker, nyari upil aja susah jaman sekarang mah. ppkm covid_19 jaman sulit indonesiamaju apa iya?"
+
+---
+
+**Input:**
+
+> "sertu tri bintoro melaksanakan kegiatan secara door to door dan sosialisasi himbauan prokes covid 19/pkkm lev-2 tentang 5m di desa wonosemi. kamis, 17-11-2022"
 
 **Prediction:** Neutral
-**Confidence:** 0.72
+**Confidence:** 0.9671
+**Nearest example:**
+
+> "binmas desa cihanyir ajak perangkat dan warga masyarakat desa cihanyir taat prokes 5m prokes ppkm covid_19 kimcipedes"
 
 Contoh lain dapat dilihat pada notebook.
 
@@ -292,3 +295,8 @@ Semua paket dapat dipasang melalui `requirements.txt`.
 ---
 ## ** Kesimpulan
 
+- Sentimen Terkait PKKM cenderung didominasi oleh sentimen netral dengan jumlah 17500 data.
+- Rentang sentimen memuncak pada bulan juli 2021 dan perlahan menurun. Hal ini menunjukkan pembahasan terkait PKKM banyak dibicarakan pada kurun waktu tersebut, sesuai dengan keadaan realita yang sedang meningkat kasus COVID-19 di Indonesia pada waktu tersebut.
+- Model berbasis SentenceTransformer menghasilkan performa klasifikasi yang baik.  
+- Akurasi model cukup baik dengan 78%.
+- FAISS index membantu memberikan interpretabilitas melalui nearest neighbor.
