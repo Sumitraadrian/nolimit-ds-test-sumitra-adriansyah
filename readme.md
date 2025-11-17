@@ -293,7 +293,7 @@ joblib>=1.4.0
 Semua paket dapat dipasang melalui `requirements.txt`.
 
 ---
-## ** Kesimpulan
+## ** Kesimpulan**
 
 - Sentimen Terkait PKKM cenderung didominasi oleh sentimen netral dengan jumlah 17500 data.
 - Rentang sentimen memuncak pada bulan juli 2021 dan perlahan menurun. Hal ini menunjukkan pembahasan terkait PKKM banyak dibicarakan pada kurun waktu tersebut, sesuai dengan keadaan realita yang sedang meningkat kasus COVID-19 di Indonesia pada waktu tersebut.
