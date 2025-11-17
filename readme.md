@@ -207,7 +207,7 @@ Notebook berisi alur lengkap mulai dari:
 
 ---
 
-## **6. Hasil Klasifikasi
+## **6. Hasil Klasifikasi**
 
 Model menghasilkan Classification Report (Precision, Recall, F1-Score) pada proses pelatihan dengan hasil berikut:
 ![Classification Report](images/cr.png)
