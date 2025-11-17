@@ -80,11 +80,11 @@ Membaca dan menginstal libraries dan dependensi yang akan digunakan dalam proyek
 
 Membaca dataset berlabel untuk persiapan embedding dan pelatihan.
 
-## **2. Exploratory Data Analysis (EDA)**
+### **3. Exploratory Data Analysis (EDA)**
 
 Tahap Exploratory Data Analysis (EDA) dilakukan untuk memahami karakteristik dataset sebelum masuk ke proses pelatihan model. EDA ini bertujuan untuk mengungkap kualitas data, distribusi label, pola teks, hingga potensi masalah seperti duplikasi dan missing values.
 
-## **3. Preprocessing Ringan**
+### **4. Preprocessing Ringan**
 
 Digunakan agar tetap sesuai konteks data Twitter dan tidak menghilangkan makna:
 
@@ -95,7 +95,7 @@ Digunakan agar tetap sesuai konteks data Twitter dan tidak menghilangkan makna:
 
 (Tidak dilakukan stemming/stopword removal untuk menjaga konteks semantik embedding.)
 
-### **3. Generate Embeddings**
+### **5. Generate Embeddings**
 
 Model yang digunakan berasal dari Hugging Face:
 **`sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`**
@@ -106,7 +106,7 @@ Model ini dipilih karena:
 * Cepat dan ringan
 * Akurasi tinggi untuk semantic similarity
 
-### **4. Split Train–Test**
+### **6. Split Train–Test**
 
 Pembagian dataset menggunakan secara acak. Pembagian data dilakukan dengan komposisi: 
 ```
@@ -115,7 +115,7 @@ Pembagian dataset menggunakan secara acak. Pembagian data dilakukan dengan kompo
 Menggunakan random seed 42 agar reproduktibel
 ```
 
-### **5. Train Classifier**
+### **7. Train Classifier**
 
 Model: **Logistic Regression**
 Menggunakan Parameter penting:
@@ -127,7 +127,7 @@ max_iter=300
 
 Penggunaan `class_weight="balanced"` bertujuan untuk mengatasi ketidakseimbangan label tanpa melakukan oversampling.
 
-### **6. Build FAISS Index**
+### **8. Build FAISS Index**
 
 FAISS digunakan untuk:
 
@@ -135,7 +135,7 @@ FAISS digunakan untuk:
 * Memberikan konteks tambahan saat prediksi
 * Mempercepat pencarian vektor
 
-### **7. Evaluation**
+### **9. Evaluation**
 
 Output evaluasi meliputi:
 
@@ -144,7 +144,7 @@ Output evaluasi meliputi:
 * F1-score
 * Confusion matrix
 
-### **8. Prediction Pipeline**
+### **10. Prediction Pipeline**
 
 Sistem prediksi menghasilkan:
 
@@ -210,9 +210,10 @@ Notebook berisi alur lengkap mulai dari:
 ## **6. Hasil Klasifikasi
 
 Model menghasilkan Classification Report (Precision, Recall, F1-Score) pada proses pelatihan dengan hasil berikut:
+![Classification Report](images/cr.png)
 
 Serta hasil Confussion Matrix sebagai berikut:
-
+![Confussion Matrix](images/cm.png)
 
 ## **7. Example Predictions**
 
